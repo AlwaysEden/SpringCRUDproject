@@ -25,20 +25,20 @@ public class BoardDAO {
         this.jdbcTemplate = jdbcTemplate;
     }
 
-    private final String BOARD_INSERT = "insert into BOARD (title, writer, content, category) values (?,?,?,?)";
-    private final String BOARD_UPDATE = "update BOARD set title=?, writer=?, content=?, category=? where seq=?";
-    private final String BOARD_DELETE = "delete from BOARD  where seq=?";
-    private final String BOARD_GET = "select * from BOARD  where seq=?";
-    private final String BOARD_LIST = "select * from BOARD order by seq desc";
+    private final String BOARD_INSERT = "insert into restaurant (writer, category, restName, foodRank, star, location, callNumber, opinion) values (?,?,?,?,?,?,?,?)";
+    private final String BOARD_UPDATE = "update restaurant set category=?, restName=?, foodRank=?, star=?, location=?, callNumber=?, opinion=? where id=?";
+    private final String BOARD_DELETE = "delete from restaurant  where id=?";
+    private final String BOARD_GET = "select * from restaurant  where id=?";
+    private final String BOARD_LIST = "select * from restaurant order by id desc";
 
     public int insertBoard(BoardVO vo) {
-        return jdbcTemplate.update(BOARD_INSERT, new Object[]{vo.getTitle(), vo.getWriter(),vo.getContent(),vo.getCategory()});
+        return jdbcTemplate.update(BOARD_INSERT, new Object[]{vo.getCategory(), vo.getWriter(),vo.getRestName(),vo.getFoodRank(), vo.getStar(), vo.getLocation(), vo.getCallNumber(), vo.getOpinion()});
     }
-    public int deleteBoard(int seq){
-        return jdbcTemplate.update(BOARD_DELETE, new Object[]{seq});
+    public int deleteBoard(int id){
+        return jdbcTemplate.update(BOARD_DELETE, new Object[]{id});
     }
     public int updateBoard(BoardVO vo) {
-        return jdbcTemplate.update(BOARD_UPDATE, new Object[]{vo.getTitle(), vo.getWriter(),vo.getContent(),vo.getCategory(), vo.getSeq()});
+        return jdbcTemplate.update(BOARD_UPDATE, new Object[]{vo.getCategory(), vo.getRestName(), vo.getFoodRank(), vo.getStar(), vo.getLocation(), vo.getCallNumber(), vo.getOpinion()});
 
     }
 
@@ -47,12 +47,15 @@ public class BoardDAO {
         @Override
         public BoardVO mapRow(ResultSet rs, int rowNum) throws SQLException {
             BoardVO vo = new BoardVO();
-            vo.setSeq(rs.getInt("seq"));
-            vo.setTitle(rs.getString("title"));
-            vo.setContent(rs.getString("content"));
+            vo.setId(rs.getInt("id"));
             vo.setWriter(rs.getString("writer"));
             vo.setCategory(rs.getString("category"));
-            vo.setRegDate(rs.getDate("regDate"));
+            vo.setRestName(rs.getString("restName"));
+            vo.setFoodRank(rs.getString("foodRank"));
+            vo.setStar(rs.getInt("star"));
+            vo.setLocation(rs.getString("location"));
+            vo.setCallNumber(rs.getString("callNumber"));
+            vo.setOpinion(rs.getString("opinion"));
             return vo;
         }
     }
@@ -65,13 +68,15 @@ public class BoardDAO {
             @Override
             public BoardVO mapRow (ResultSet rs, int rowNum)throws SQLException{
                 BoardVO data = new BoardVO();
-                BoardVO vo = new BoardVO();
-                data.setSeq(rs.getInt("seq"));
-                data.setTitle(rs.getString("title"));
+                data.setId(rs.getInt("id"));
                 data.setWriter(rs.getString("writer"));
-                data.setCategory(rs.getString("Category"));
-                data.setContent(rs.getString("Content"));
-                data.setRegDate(rs.getDate("regDate"));
+                data.setCategory(rs.getString("category"));
+                data.setRestName(rs.getString("restName"));
+                data.setFoodRank(rs.getString("foodRank"));
+                data.setStar(rs.getInt("star"));
+                data.setLocation(rs.getString("location"));
+                data.setCallNumber(rs.getString("callNumber"));
+                data.setOpinion(rs.getString("opinion"));
                 return data;
             }
         });

@@ -36,30 +36,38 @@
 </head>
 </head>
 <body>
-<h1>자유게시판</h1>
+<h1>맛집게시판</h1>
 
 <table id="list" width="90%">
     <tr>
       <th>Id</th>
       <th>Category</th>
-      <th>Title</th>
       <th>Writer</th>
-      <th>Content</th>
-      <th>Regdate</th>
-      <th>Edit</th>
-      <th>Delete</th>
+      <th>Restaurant Name</th>
+      <th>Star</th>
+      <th>FoodRank</th>
+      <th>Opinion</th>
+      <th>Location</th>
+      <th>Telephone Number</th>
+      <th>edit</th>
+      <th>delete</th>
+
     </tr>
 
     <c:forEach items="${list}" var="u">
   <tr>
-    <td>${u.seq}</td>
+    <td>${u.id}</td>
     <td>${u.category}</td>
-    <td>${u.title}</td>
     <td>${u.writer}</td>
-    <td>${u.content}</td>
-    <td>${u.regDate}</td>
-    <td><a href="editform/${u.seq}">Edit</a></td>
-    <td><a href="javascript:delete_ok('${u.seq}')">Delete</a></td>
+    <td>${u.restName}</td>
+    <td>${u.star}</td>
+    <td>${u.foodRank}</td>
+    <td>${u.opinion}</td>
+    <td>${u.location}</td>
+    <td>${u.callNumber}</td>
+
+    <td><a href="editform/${u.id}">Edit</a></td>
+    <td><a href="javascript:delete_ok('${u.id}')">Delete</a></td>
   </tr>
 </c:forEach>
 </table>

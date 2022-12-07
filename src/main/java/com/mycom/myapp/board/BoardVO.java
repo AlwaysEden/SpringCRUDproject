@@ -3,67 +3,85 @@ package com.mycom.myapp.board;
 import java.util.Date;
 
 public class BoardVO {
-    private int seq;
-    private String category;
-    private String title;
+    private int id;
     private String writer;
-    private String content;
-    private Date regDate;
-    private int cnt;
+    private String category;
+    private String restName;
+    private String foodRank;
+    private int star;
+    private String location;
+    private String callNumber;
+    private String opinion;
 
-    public void setCategory(String category) {
-        this.category = category;
+    public int getId() {
+        return id;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public void setWriter(String writer) {
-        this.writer = writer;
-    }
-
-    public void setContent(String content) {
-        this.content = content;
-    }
-
-    public void setRegDate(Date regDate) {
-        this.regDate = regDate;
-    }
-
-    public void setCnt(int cnt) {
-        this.cnt = cnt;
-    }
-
-    public String getCategory() {
-        return category;
-    }
-
-    public String getTitle() {
-        return title;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getWriter() {
         return writer;
     }
 
-    public String getContent() {
-        return content;
+    public void setWriter(String writer) {
+        this.writer = writer;
     }
 
-    public Date getRegDate() {
-        return regDate;
+    public String getCategory() {
+        return category;
     }
 
-    public int getCnt() {
-        return cnt;
+    public void setCategory(String category) {
+        this.category = category;
     }
 
-    public int getSeq(){
-        return seq;
-    }
-    public void setSeq(int seq){
-        this.seq = seq;
+    public String getRestName() {
+        return restName;
     }
 
+    public void setRestName(String restName) {
+        this.restName = restName;
+    }
+
+    public String getFoodRank() {
+        return foodRank;
+    }
+
+    public void setFoodRank(String foodRank) {
+        this.foodRank = foodRank;
+    }
+
+    public int getStar() {
+        return star;
+    }
+
+    public void setStar(int star) {
+        this.star = star;
+    }
+
+    public String getLocation() {
+        return location;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
+    }
+
+    public String getCallNumber() {
+        return callNumber;
+    }
+
+    public void setCallNumber(String callNumber) {
+        this.callNumber = callNumber;
+    }
+
+    public String getOpinion() {
+        return opinion;
+    }
+
+    public void setOpinion(String opinion) {
+        this.opinion = opinion;
+    }
 }

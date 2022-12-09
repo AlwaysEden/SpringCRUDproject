@@ -14,7 +14,6 @@ public class BoardController {
 
     @RequestMapping("/home")
     public String home(){
-
         System.out.println("hello");
         return "board/home";
     }

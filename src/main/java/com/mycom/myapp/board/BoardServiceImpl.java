@@ -25,10 +25,9 @@ public class BoardServiceImpl implements BoardService{
     }
 
     @Override
-    public BoardVO getBoard(int seq) {
+    public BoardVO getBoard(int seq){
         return boardDAO.getBoard(seq);
     }
-
     @Override
     public List<BoardVO> getBoardList() {
         return boardDAO.getBoardList();

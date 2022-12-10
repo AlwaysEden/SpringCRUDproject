@@ -1,4 +1,4 @@
-package com.mycom.myapp.board;
+package com.example.board;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,10 +11,6 @@ import java.util.List;
 
 @Repository
 public class BoardDAO {
-    Connection conn = null;
-    PreparedStatement stmt = null;
-    ResultSet rs = null;
-
     @Autowired
     SqlSession sqlSession;
 
@@ -22,6 +18,12 @@ public class BoardDAO {
         int result = sqlSession.insert("Board.insertBoard",vo);
         return result;
     }
+
+    private final String BOARD_INSERT = "insert into restaurant (writer, category, restName, foodRank, star, location, callNumber, opinion) values (?,?,?,?,?,?,?,?)";
+    private final String BOARD_UPDATE = "update restaurant set writer=?, category=?, restName=?, foodRank=?, star=?, location=?, callNumber=?, opinion=? where id=?";
+    private final String BOARD_DELETE = "delete from restaurant  where id=?";
+    private final String BOARD_GET = "select * from restaurant  where id=?";
+    private final String BOARD_LIST = "select * from restaurant order by id desc";
 
     public BoardVO getBoard(int seq){
         BoardVO one = sqlSession.selectOne("Board.getBoard",seq);
@@ -36,11 +38,6 @@ public class BoardDAO {
     public int deleteBoard(int seq) {
         int delete = sqlSession.delete("Board.deleteBoard", seq);
         return delete;
-    }
-
-    public int updateBoard(BoardVO vo) {
-        int update = sqlSession.update("Board.updateBoard", vo);
-        return update;
     }
 //    public void setJdbcTemplate(JdbcTemplate jdbcTemplate){
 //        this.jdbcTemplate = jdbcTemplate;

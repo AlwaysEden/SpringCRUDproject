@@ -37,6 +37,7 @@
 </head>
 <body>
 <h1>맛집게시판</h1>
+<button type="button" onclick="location.href='../login/logout'">로그아웃</button>
 
 <table id="list" width="90%">
     <tr>

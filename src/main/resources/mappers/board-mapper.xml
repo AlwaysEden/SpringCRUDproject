@@ -8,7 +8,7 @@
     </insert>
     <update id="updateBoard">
         update restaurant
-        set writer=#{writer}, category=#{category}, restName=#{restName}, foodRank=#{foodRank}, star=#{star}, location=#{location}, callNumber=#{callNumber},opinion=#{opinion}}
+        set writer=#{writer}, category=#{category}, restName=#{restName}, foodRank=#{foodRank}, star=#{star}, location=#{location}, callNumber=#{callNumber},opinion=#{opinion}
         where id=#{id}
     </update>
     <delete id="deleteBoard">

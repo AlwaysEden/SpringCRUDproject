@@ -27,7 +27,7 @@
 </head>
 <body>
 <h1>Add New Post</h1>
-<form action = "addok" method="post">
+<form action = "addok" method="GET">
     <table id = "edit" width="800">
         <tr><td class="input" width="200">글쓴이 </td><td><input type="text" name = "writer"/></td></tr>
         <tr><td class="input" width="200">카테고리</td>

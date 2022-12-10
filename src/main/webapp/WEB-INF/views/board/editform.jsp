@@ -1,7 +1,7 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 		 pageEncoding="UTF-8"%>
-<%@page import="com.example.board.BoardDAO, com.example.board.BoardVO"%>
+<%@page import="com.mycom.myapp.board.BoardDAO, com.mycom.myapp.board.BoardVO"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -28,7 +28,7 @@
 <body>
 
 <h1>Edit Page</h1>
-<form:form modelAttribute="u" method="POST" action="../editok">
+<form:form modelAttribute="u" method="GET" action="../editok">
 	<form:hidden path="id"/>
 	<table id="edit" width="800">
 		<tr><td class="input">글쓴이 </td><td><form:input path="writer"/></td></tr>
